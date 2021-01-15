@@ -9,9 +9,15 @@
         </div>
        <div>
          <label>Your Guess: </label>
-         <input type="number" [value]="guess" (input)="guess = $event.target.value" />
+     <form [formGroup]="number">
+       <mat-form-field>
+       <mat-label>Number</mat-label>
+         <input matInput type="number" [formControl]="fontSizeControl" min="0" max="100" [value]="guess" (input)="guess = $event.target.value" />
+        </mat-form-field>
+      </form>
          <button mat-raised-button (click)="verifyGuess()" class="btn btn-primary btn-sm">Verify</button>
          <button mat-raised-button (click)="initializeGame()" class="btn btn-warning btn-sm">Restart</button>
+        
        </div>
      </div>
 
